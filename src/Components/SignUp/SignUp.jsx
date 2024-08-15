@@ -52,25 +52,11 @@ const SignUp = () => {
             <Helmet>
                 <title>Sign_Up | EduConnect</title>
             </Helmet>
-            <div className="md:flex gap-10 justify-evenly">
-                <div className="relative text-center md:min-h-screen md:w-1/2">
-                    <img src={bg} alt="Sign Up" className="w-full h-full object-cover" />
-                    <div className="absolute text-white top-[2%] md:top-1/3 p-8">
-                        <h1 className="text-4xl font-bold">Join EduConnect and start learning</h1>
-                        <br />
-                        <p className="text-2xl">Sign up to EduConnect to get started!</p>
-                        <br />
-                        <p className="text-sm">
-                            By signing up to EduConnect, you agree to our
-                        </p>
-                        <p className="text-sm">
-                            <a href="#" className="underline">Terms of use</a> and <a href="#" className="underline">Privacy Policy</a>
-                        </p>
-                    </div>
-                </div>
-                <div className="md:w-1/2  bg-base-100 flex mx-auto items-center max-w-sm">
-                    <form className="card-body w-full" onSubmit={handleSubmit(onSubmit)}>
-                        <h1 className="text-4xl text-center font-bold mb-4">Sign Up Here!!</h1>
+            <div className="">
+                
+                <div className=" bg-base-100 flex mx-auto items-center max-w-md">
+                    <form className="card-body w-full border my-8" onSubmit={handleSubmit(onSubmit)}>
+                        <h1 className="text-4xl text-center font-bold mb-2">Sign Up Here!!</h1>
                         <div className="form-control mb-1">
                             <label className="label">
                                 <span className="label-text font-bold">Name</span>
@@ -122,7 +108,7 @@ const SignUp = () => {
                         <div className="form-control mt-1">
                             <button type="submit" value="sign Up" className="btn btn-outline border-0 border-b-4 border-t-2 border-black text-black px-3 text-xl font-bold w-full">Sign Up</button>
                         </div>
-                        <p className="text-center mt-2">
+                        <p className="text-center mt-1">
                             Already have an account? Please <Link to="/login">
                                 <button className="text-blue-400 underline font-bold">Sign In</button>
                             </Link>

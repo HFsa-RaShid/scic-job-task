@@ -38,31 +38,18 @@ const LogIn = () => {
             <Helmet>
                 <title>Sign_In | EduConnect</title>
             </Helmet>
-        <div className=" md:flex  gap-10 justify-evenly">
-            <div className="relative text-center md:min-h-screen md:w-1/2">
-                <img src={login} className="w-full h-full relative"/>
-                <div className="absolute text-white top-[2%] md:top-[30%] p-8">
-                <h1 className="text-4xl font-bold">Join EduConnect and learn with us</h1>
-                <br></br>
-                <p className="text-2xl">Sign in to EduConnect to get started!</p>
-                <br></br>
-                <p className="text-[14px]">
-                By logging in to EduConnect, you agree to our 
-                </p>
-                <p className="text-[14px]"><a href="#" className="underline">Terms of use</a> and <a href="#" className="underline">Privacy Policy</a></p>
-                </div>
+        <div className="">
             
-            </div>
             
-            <div className=" md:w-[50%] max-w-sm  bg-base-100 flex items-center  mx-auto ">
+            <div className="  max-w-md  bg-base-100 flex items-center  mx-auto ">
                
-            <form className="card-body" onSubmit={handleSignIn}>
-            <h1 className="text-4xl text-center font-bold mb-4">Sign In Now!!</h1>
+            <form className="card-body border my-8" onSubmit={handleSignIn}>
+            <h1 className="text-4xl text-center font-bold mb-2">Sign In Now!!</h1>
                 <div className="form-control">
                 <label className="label">
                     <span className="label-text font-bold">Email</span>
                 </label>
-                <input type="email" name='email' placeholder="email" className="input input-bordered" required />
+                <input type="email" name='email' placeholder="Email" className="input input-bordered" required />
                 </div>
                 <div className="form-control">
                 <label className="label">
@@ -75,11 +62,11 @@ const LogIn = () => {
                 </div>
                
                 
-                <label className="label">
+                {/* <label className="label">
                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                </label>
+                </label> */}
                 </div>
-                <div className="form-control mt-6">
+                <div className="form-control mt-2">
                
                 <button type="submit" className="btn btn-outline border-0 border-b-4 border-t-2 border-black text-black px-3 text-xl font-bold w-full">Sign In</button>
                 <div className="divider">OR</div>
@@ -88,7 +75,7 @@ const LogIn = () => {
                 
             
                 </div>
-                <p className="text-center mb-5">New to EduConnect? Please <Link to="/signup">
+                <p className="text-center">New to EduConnect? Please <Link to="/signup">
                             <button className="text-blue-400 underline font-bold">Sign Up</button>
                         </Link></p>
             </form>
