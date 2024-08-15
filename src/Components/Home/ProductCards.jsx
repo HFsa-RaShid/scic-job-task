@@ -18,7 +18,7 @@ const ProductCards = ({product}) => {
             <div className="card card-compact bg-base-100 shadow-xl">
   <figure>
     <img
-      src={productImage} className="h-[250px] w-[65%]" />
+      src={productImage} className="h-[220px] w-[65%]" />
   </figure>
   <div className="card-body">
     <h2 className="card-title">{productName}</h2>
@@ -31,8 +31,8 @@ const ProductCards = ({product}) => {
     <div className="flex ">
     <p>{price}</p>
     <p>{ratings}</p>
-
     </div>
+    <p>{creationDate}</p>
     <div className="card-actions justify-end">
       <button className="btn btn-primary">Buy Now</button>
     </div>
