@@ -55,8 +55,8 @@ const SignUp = () => {
             <div className="">
                 
                 <div className=" bg-base-100 flex mx-auto items-center max-w-md">
-                    <form className="card-body w-full border my-8" onSubmit={handleSubmit(onSubmit)}>
-                        <h1 className="text-4xl text-center font-bold mb-2">Sign Up Here!!</h1>
+                    <form className="card-body border border-[#9b3869] w-full  my-8" onSubmit={handleSubmit(onSubmit)}>
+                        <h1 className="text-4xl text-[#9b3869] text-center font-bold mb-2">Sign Up Here!!</h1>
                         <div className="form-control mb-1">
                             <label className="label">
                                 <span className="label-text font-bold">Name</span>
@@ -66,7 +66,7 @@ const SignUp = () => {
                                 name="name"
                                 {...register("name", { required: true })}
                                 placeholder="Name"
-                                className="input input-bordered"
+                                className="input border border-[#9b3869]"
                             />
                             {errors.name && <span className="text-red-700 italic">Name is required</span>}
                         </div>
@@ -79,7 +79,7 @@ const SignUp = () => {
                                 name="email"
                                 {...register("email", { required: true })}
                                 placeholder="Email"
-                                className="input input-bordered"
+                                className="input border border-[#9b3869]"
                             />
                             {errors.email && <span className="text-red-700 italic">Email is required</span>}
                         </div>
@@ -97,7 +97,7 @@ const SignUp = () => {
                                     maxLength: 20
                                 })}
                                 placeholder="Password"
-                                className="input input-bordered"
+                                className="input border border-[#9b3869]"
                             />
                             {errors.password?.type === 'required' && <span className="text-red-700 italic">Password is required</span>}
                             {errors.password?.type === 'minLength' && <span className="text-red-700 italic">Password must be 6 characters</span>}
@@ -106,7 +106,7 @@ const SignUp = () => {
                         </div>
                        
                         <div className="form-control mt-1">
-                            <button type="submit" value="sign Up" className="btn btn-outline border-0 border-b-4 border-t-2 border-black text-black px-3 text-xl font-bold w-full">Sign Up</button>
+                            <button type="submit" value="sign Up" className="btn btn-outline border border-[#9b3869] text-[#9b3869] px-3 text-xl font-bold w-full hover:bg-[#9b3869] hover:text-white">Sign Up</button>
                         </div>
                         <p className="text-center mt-1">
                             Already have an account? Please <Link to="/login">

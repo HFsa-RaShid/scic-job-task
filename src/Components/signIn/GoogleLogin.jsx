@@ -38,7 +38,7 @@ const GoogleLogin = () => {
     
     return (
         <div>
-            <div className="btn btn-outline border-0 border-b-4 border-t-2 border-black text-black px-8 text-xl font-bold w-full flex items-center">
+            <div className="btn btn-outline border border-[#9b3869] text-[#9b3869]  px-8 text-xl font-bold w-full flex items-center hover:bg-[#9b3869] hover:text-white">
                     <FcGoogle />
                     <button type="button" onClick={handleGoogleLogIn} className="font-bold text-[16px]">Google</button>
                 </div>

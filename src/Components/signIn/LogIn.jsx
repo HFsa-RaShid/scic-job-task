@@ -41,22 +41,23 @@ const LogIn = () => {
         <div className="">
             
             
-            <div className="  max-w-md  bg-base-100 flex items-center  mx-auto ">
+            <div className="max-w-md  bg-base-100 flex items-center mx-auto ">
                
-            <form className="card-body border my-8" onSubmit={handleSignIn}>
-            <h1 className="text-4xl text-center font-bold mb-2">Sign In Now!!</h1>
+            <form className="card-body border border-[#9b3869] my-8" onSubmit={handleSignIn}>
+            <h1 className="text-4xl text-center font-bold mb-2 text-[#9b3869]">Sign In Now!!</h1>
                 <div className="form-control">
                 <label className="label">
                     <span className="label-text font-bold">Email</span>
                 </label>
-                <input type="email" name='email' placeholder="Email" className="input input-bordered" required />
+                <input type="email" name='email' placeholder="Email" className="input
+                 border border-[#9b3869]" required />
                 </div>
                 <div className="form-control">
                 <label className="label">
                     <span className="label-text font-bold">Password</span>
                 </label>
                 <div className="flex relative">
-                     <input type={showPassword ? "text" : "password"} name="password" placeholder="Enter Password" className="input input-bordered w-full" required />
+                     <input type={showPassword ? "text" : "password"} name="password" placeholder="Enter Password" className="input w-full border border-[#9b3869]" required />
                     <button type="button" className="absolute right-3 top-4" onClick={() => setShowPassword(!showPassword)}>{showPassword ? <FaEye /> : <FaEyeSlash />}
                     </button>
                 </div>
@@ -68,7 +69,7 @@ const LogIn = () => {
                 </div>
                 <div className="form-control mt-2">
                
-                <button type="submit" className="btn btn-outline border-0 border-b-4 border-t-2 border-black text-black px-3 text-xl font-bold w-full">Sign In</button>
+                <button type="submit" className="btn btn-outline  border border-[#9b3869] text-[#9b3869] px-3 text-xl font-bold w-full hover:bg-[#9b3869] hover:text-white">Sign In</button>
                 <div className="divider">OR</div>
                 
                 <GoogleLogin></GoogleLogin>

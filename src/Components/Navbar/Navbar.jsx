@@ -18,18 +18,18 @@ const Navbar = () => {
           });
       };
     return (
-        <div className="navbar bg-purple-400 flex justify-between">
-            <NavLink to='/' className="btn btn-ghost text-xl">daisyUI</NavLink>
+        <div className="navbar bg-[#9b3869]  flex justify-between">
+            <NavLink to='/' className="btn btn-ghost text-xl text-white">daisyUI</NavLink>
 
             {user ? (
             <>
             
-            <button onClick={handleSignOut} className="btn btn-outline border-0 border-b-4 border-t-2 border-white text-[14px] md:text-[18px] text-white  px-2  font-bold">Sign Out</button>
+            <button onClick={handleSignOut} className="btn btn-outline border border-white text-[14px] md:text-[18px] text-white  px-2 mr-4  font-bold hover:bg-white hover:text-[#9b3869]">Sign Out</button>
             </>
              
           ) : (
             <NavLink to='/login'>
-              <button className="btn btn-outline border-0 border-b-4 border-t-2 border-white text-white px-3 text-xl font-bold">Sign In</button>
+              <button className="btn btn-outline border border-white text-white px-3 text-xl font-bold mr-4 hover:bg-white hover:text-[#9b3869]">Sign In</button>
             </NavLink>
           )}
             

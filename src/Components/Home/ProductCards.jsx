@@ -34,7 +34,7 @@ const ProductCards = ({product}) => {
     </div>
     <p>{creationDate}</p>
     <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
+      <button className="px-3 py-2 border border-[#eba9ca] text-[#b30059] rounded-md font-medium">Buy Now</button>
     </div>
   </div>
 </div>
