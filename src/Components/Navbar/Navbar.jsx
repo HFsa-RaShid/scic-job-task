@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../PROVIDER/AuthProvider";
-
+import logo from "../../assets/logo.png"
 
 const Navbar = () => {
 
@@ -19,7 +19,9 @@ const Navbar = () => {
       };
     return (
         <div className="navbar bg-[#9b3869]  flex justify-between">
-            <NavLink to='/' className="btn btn-ghost text-xl text-white">daisyUI</NavLink>
+            <NavLink to='/' className="btn btn-ghost text-xl text-white">
+            <img src={logo} className="w-[150px] "/>
+            </NavLink>
 
             {user ? (
             <>
