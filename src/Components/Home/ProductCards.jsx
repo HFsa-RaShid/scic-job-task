@@ -15,7 +15,7 @@ const ProductCards = ({product}) => {
     } = product;
     return (
         <div>
-            <div className="card card-compact bg-base-100 shadow-xl">
+            <div className="card card-compact bg-base-100 shadow-lg shadow-[#d6afc2]">
   <figure>
     <img
       src={productImage} className="h-[220px] w-[65%]" />

@@ -1,6 +1,5 @@
-// qUoASz0dAhKallXb
+
 import { Link, useNavigate } from "react-router-dom";
-import bg from '../../assets/bg.jpg';
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { ToastContainer, toast } from 'react-toastify';

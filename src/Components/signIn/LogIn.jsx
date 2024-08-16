@@ -1,5 +1,4 @@
 import { Link, useLocation, useNavigate} from "react-router-dom";
-import login from '../../assets/bg.jpg';
 import { useContext, useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
