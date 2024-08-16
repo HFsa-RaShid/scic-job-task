@@ -49,7 +49,7 @@ const SignUp = () => {
     return (
         <div className="mx-auto">
             <Helmet>
-                <title>Sign_Up | EduConnect</title>
+                <title>Sign_Up | QuickCart</title>
             </Helmet>
             <div className="">
                 

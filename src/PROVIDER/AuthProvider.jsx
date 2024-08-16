@@ -40,15 +40,33 @@ const AuthProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+        const unSubscribe = onAuthStateChanged(auth, currentUser => {
+           
             setUser(currentUser);
-            console.log('Observing current user:', currentUser);
-
-            setLoading(false);
+            console.log('observing current provider', currentUser);
+            
+             // if user exists then issue a token
+             if(currentUser){
+                const userInfo = {email: currentUser.email };
+                axiosPublic.post('/jwt', userInfo)
+                .then(res => {
+                    // console.log('token response',res.data);
+                    if(res.data.token){
+                        localStorage.setItem('access-token',res.data.token);
+                        setLoading(false);
+                    }
+                })
+            }
+            else{
+                localStorage.removeItem('access-token')
+                setLoading(false);
+            }
+            
         });
-
-        return () => unSubscribe();
-    }, [axiosPublic]);
+        return () => {
+            unSubscribe();
+        }
+    }, [axiosPublic,user?.email]);
 
     const authInfo = {
         user,

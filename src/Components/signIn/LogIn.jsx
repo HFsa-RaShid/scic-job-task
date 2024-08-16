@@ -35,7 +35,7 @@ const LogIn = () => {
     return (
         <div className="max-w-screen-xl">
             <Helmet>
-                <title>Sign_In | EduConnect</title>
+                <title>Sign_In | QuickCart</title>
             </Helmet>
         <div className="">
             
@@ -75,7 +75,7 @@ const LogIn = () => {
                 
             
                 </div>
-                <p className="text-center">New to EduConnect? Please <Link to="/signup">
+                <p className="text-center">New to QuickCart? Please <Link to="/signup">
                             <button className="text-blue-400 underline font-bold">Sign Up</button>
                         </Link></p>
             </form>

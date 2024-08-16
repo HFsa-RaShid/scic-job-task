@@ -1,34 +1,13 @@
 
-
-// import { useQuery } from "@tanstack/react-query";
-// import useAxiosSecure from "./useaxiosSecure";
-
-
-// const useProducts = (page, limit, sortField, sortOrder, search) => {
-//     const axiosSecure = useAxiosSecure();
-
-//     const { refetch, data } = useQuery({
-//         queryKey: ['products', page, sortField, sortOrder, search],
-//         queryFn: async () => {
-//             const res = await axiosSecure.get(`/products?page=${page}&limit=${limit}&sortField=${sortField}&sortOrder=${sortOrder}&search=${search}`);
-//             return res.data;
-//         }
-//     });
-    
-//     return [data?.results || [], refetch, data?.next || null];
-// };
-
-// export default useProducts;
-
-
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "./useaxiosSecure";
 
-const useProducts = (page, limit, sortField, sortOrder, search, selectedBrand, selectedCategory, priceRange) => {
+
+const useProducts = (page, limit, sortField, sortOrder, search, selectedBrand, selectedCategory, minPrice, maxPrice) => {
     const axiosSecure = useAxiosSecure();
 
     const { refetch, data } = useQuery({
-        queryKey: ['products', page, sortField, sortOrder, search, selectedBrand, selectedCategory, priceRange],
+        queryKey: ['products', page, sortField, sortOrder, search, selectedBrand, selectedCategory, minPrice, maxPrice],
         queryFn: async () => {
             const res = await axiosSecure.get(`/products`, {
                 params: {
@@ -39,8 +18,8 @@ const useProducts = (page, limit, sortField, sortOrder, search, selectedBrand, s
                     search,
                     brand: selectedBrand,
                     category: selectedCategory,
-                    minPrice: priceRange[0],
-                    maxPrice: priceRange[1]
+                    minPrice,   
+                    maxPrice    
                 }
             });
             return res.data;

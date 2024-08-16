@@ -4,6 +4,9 @@ import useProducts from "../../hooks/useProducts";
 import ProductCards from "./ProductCards";
 import Slider from 'react-rangeslider';
 import 'react-rangeslider/lib/index.css';  
+import { MdArrowBackIos } from "react-icons/md";
+import { GrNext } from "react-icons/gr";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
     const [page, setPage] = useState(1);
@@ -14,10 +17,8 @@ const Home = () => {
     const [selectedBrand, setSelectedBrand] = useState('');  
     const [selectedCategory, setSelectedCategory] = useState('');  
     const [priceRange, setPriceRange] = useState([0, 500]);  
-    
-    const [products, refetch, nextPage] = useProducts(page, 9, sortField, sortOrder, search, selectedBrand, selectedCategory, priceRange);
-    
 
+    const [products, refetch, nextPage] = useProducts(page, 9, sortField, sortOrder, search, selectedBrand, selectedCategory, priceRange[0], priceRange[1]);
 
     const handleNextPage = () => {
         if (nextPage) setPage(nextPage.page);
@@ -72,17 +73,25 @@ const Home = () => {
     };
 
     const handlePriceRangeChange = (value) => {
-        setPriceRange(value);
+        setPriceRange([value, priceRange[1]]); 
+        refetch();
+    };
+
+    const handleMaxPriceRangeChange = (value) => {
+        setPriceRange([priceRange[0], value]); 
         refetch();
     };
 
     return (
         <div className="container mx-auto my-20 px-4">
+            <Helmet>
+                <title>Home | QuickCart</title>
+            </Helmet>
 
-            <div className="flex  justify-evenly w-[50%] mx-auto mb-10">
+            <div className="md:flex justify-between lg:justify-evenly w-full lg:w-[80%] mx-auto mb-10">
 
                 {/* Category */}
-                <select onChange={handleCategoryChange} className="border border-[#9b3869] p-2">
+                <select onChange={handleCategoryChange} className="border border-[#9b3869] p-2 mr-20 md:mr-0">
                     <option value="">All Categories</option>
                     <option value="Shoes">Shoes</option>
                     <option value="Clothing">Clothing</option>
@@ -90,8 +99,7 @@ const Home = () => {
                     <option value="Accessories">Accessories</option>
                 </select>
 
-
-                {/* Brand*/}
+                {/* Brand */}
                 <select onChange={handleBrandChange} className="border border-[#9b3869] p-2">
                     <option value="">All Brands</option>
                     <option value="SpeedFit">SpeedFit</option>
@@ -107,58 +115,68 @@ const Home = () => {
                     <option value="FashionStep">FashionStep</option>
                     <option value="DurableWear">DurableWear</option>
                     <option value="ChicBag">ChicBag</option>
-                
                 </select>
-                
-                
-                {/* Price Range  */}
+
+                {/* Price Range */}
                 <div className="flex items-center space-x-2">
                     <span>Price:</span>
                     <Slider
-                        min={20}
+                        min={0}
                         max={500}
                         step={1}
-                        value={priceRange}
-                        onChange={handlePriceRangeChange}
+                        value={priceRange[0]}
+                        onChange={handlePriceRangeChange} 
                         className="w-40"
                     />
-                    <div className='ml-2'>{`$${priceRange}`}</div>
+                    <span>-</span>
+                    <Slider
+                        min={0}
+                        max={500}
+                        step={1}
+                        value={priceRange[1]}
+                        onChange={handleMaxPriceRangeChange} 
+                        className="w-32 lg:w-40"
+                    />
+                    <div className='ml-2'>{`$${priceRange[0]} - $${priceRange[1]}`}</div>
                 </div>
             </div>
-            <div className="flex justify-between mb-20 space-x-4 mx-auto w-[50%]">
-                <div>
-                <input 
-                    type="text" 
-                    placeholder="Search products..." 
-                    value={searchTerm} 
-                    onChange={handleSearchChange}
-                    className="border border-[#9b3869] p-2 w-[250px]"
-                />
-                <button 
-                    onClick={handleSearchClick} 
-                    className="border bg-[#9b3869] text-white p-2 rounded"
-                >
-                    Search
-                </button>
+
+            <div className="md:flex justify-evenly mb-20 space-x-4 mx-auto  w-full md:w-[80%] lg:w-[90%]  ml-6">
+                <div className="">
+                    <input 
+                        type="text" 
+                        placeholder="Search products..." 
+                        value={searchTerm} 
+                        onChange={handleSearchChange}
+                        className="border border-[#9b3869] p-2 w-[250px] mb-6 md:mb-0"
+                    />
+                    <button 
+                        onClick={handleSearchClick} 
+                        className="border bg-[#9b3869] text-white p-2 rounded"
+                    >
+                        Search
+                    </button>
                 </div>
-                
-                
-                
+
                 <select onChange={(e) => handleSortChange(e.target.value)} className="border border-[#9b3869] p-2">
                     <option value="date_desc">Date Added: Newest First</option>
                     <option value="price_asc">Price: Low to High</option>
                     <option value="price_desc">Price: High to Low</option>
                 </select>
             </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
                 {products.map(product => <ProductCards key={product._id} product={product} />)}
             </div>
-            <div className="flex justify-between mt-4">
-                <button onClick={handlePreviousPage} disabled={page === 1}>
+
+            <div className="flex justify-between mt-10 ">
+                <button onClick={handlePreviousPage} disabled={page === 1} className="bg-[#9b3869] text-white p-3 rounded-xl flex items-center">
+                    <MdArrowBackIos />
                     Previous
                 </button>
-                <button onClick={handleNextPage} disabled={!nextPage}>
+                <button onClick={handleNextPage} disabled={!nextPage} className="bg-[#9b3869] text-white p-3 rounded-xl flex items-center">
                     Next
+                    <GrNext />
                 </button>
             </div>
         </div>

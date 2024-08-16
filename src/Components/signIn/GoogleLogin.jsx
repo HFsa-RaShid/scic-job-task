@@ -20,7 +20,6 @@ const GoogleLogin = () => {
             const userInfo = {
                 name: result.user?.displayName,
                 email: result.user?.email,
-                role: 'student',
                 image: result.user?.photoURL
             }
             
