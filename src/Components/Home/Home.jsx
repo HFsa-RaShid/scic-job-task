@@ -18,7 +18,7 @@ const Home = () => {
     const [selectedCategory, setSelectedCategory] = useState('');  
     const [priceRange, setPriceRange] = useState([0, 500]);  
 
-    const [products, refetch, nextPage] = useProducts(page, 9, sortField, sortOrder, search, selectedBrand, selectedCategory, priceRange[0], priceRange[1]);
+    const [products, refetch, nextPage, loading] = useProducts(page, 9, sortField, sortOrder, search, selectedBrand, selectedCategory, priceRange[0], priceRange[1]);
 
     const handleNextPage = () => {
         if (nextPage) setPage(nextPage.page);
@@ -165,9 +165,16 @@ const Home = () => {
                 </select>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-                {products.map(product => <ProductCards key={product._id} product={product} />)}
-            </div>
+
+            {loading ? (
+                <div className="flex justify-center items-center my-20">
+                    <span className="loading loading-spinner loading-md"></span>
+                </div>
+            ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+                    {products.map(product => <ProductCards key={product._id} product={product} />)}
+                </div>
+            )}
 
             <div className="flex justify-between mt-10 ">
                 <button onClick={handlePreviousPage} disabled={page === 1} className="bg-[#9b3869] text-white p-3 rounded-xl flex items-center">
