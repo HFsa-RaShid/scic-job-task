@@ -2,7 +2,7 @@
 # Website name: QuickCart
 + [Server github] (https://github.com/HFsa-RaShid/scic-job-task-server)
 
-This is the backend server for the Product Filtering and Search SPA. It is built using Node.js, Express.js, and MongoDB. The server provides APIs for managing and querying product data, including search, filter, and sort functionalities.
+This project is a single-page application (SPA) that allows users to search, filter, and sort products. It is built using React.js and communicates with the backend server via RESTful APIs. The application also includes authentication via Firebase.
 
 # Features:
 + Pagination: Efficiently loads products with pagination.
