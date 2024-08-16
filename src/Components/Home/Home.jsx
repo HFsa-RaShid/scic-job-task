@@ -141,7 +141,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="md:flex justify-evenly mb-20 space-x-4 mx-auto  w-full md:w-[80%] lg:w-[90%]  ml-6">
+            <div className="md:flex justify-evenly mb-20 space-x-4 mx-auto w-full md:w-[80%] lg:w-[90%] ml-6">
                 <div className="">
                     <input 
                         type="text" 
@@ -165,7 +165,6 @@ const Home = () => {
                 </select>
             </div>
 
-
             {loading ? (
                 <div className="flex justify-center items-center my-20">
                     <span className="loading loading-spinner loading-md"></span>
@@ -176,12 +175,25 @@ const Home = () => {
                 </div>
             )}
 
-            <div className="flex justify-between mt-10 ">
-                <button onClick={handlePreviousPage} disabled={page === 1} className="bg-[#9b3869] text-white p-3 rounded-xl flex items-center">
+            <div className="flex justify-between mt-10 items-center">
+                <button 
+                    onClick={handlePreviousPage} 
+                    disabled={page === 1} 
+                    className="bg-[#9b3869] text-white p-3 rounded-xl flex items-center"
+                >
                     <MdArrowBackIos />
                     Previous
                 </button>
-                <button onClick={handleNextPage} disabled={!nextPage} className="bg-[#9b3869] text-white p-3 rounded-xl flex items-center">
+
+                <span className="text-lg font-semibold">
+                    Page {page}
+                </span>
+
+                <button 
+                    onClick={handleNextPage} 
+                    disabled={!nextPage} 
+                    className="bg-[#9b3869] text-white p-3 rounded-xl flex items-center"
+                >
                     Next
                     <GrNext />
                 </button>
